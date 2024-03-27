@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form - Step 1</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 8px;
+      color: #333;
+    }
+    input, select {
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+    .next-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .next-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Feedback Form - Step 1</h1>
+
+    <form id="feedbackForm" action="clog.php" method="post">
+      <!-- Replace "seminar.html" with the actual file path of your seminar.html file -->
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="rollno">Roll Number:</label>
+      <input type="text" id="rollno" name="rollno" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="degree">Degree:</label>
+      <select id="degree" name="degree" required>
+        <option value="" disabled selected>Select Degree</option>
+        <option value="UG">UG</option>
+        <option value="PG">PG</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <select id="year" name="year" required disabled>
+        <option value="" disabled selected>Select Year</option>
+      </select>
+
+      <label for="department">Department Name:</label>
+      <select id="department" name="department" required disabled>
+        <option value="" disabled selected>Select Department</option>
+      </select>
+
+      <button class="next-button" type="submit">Next</button>
+    </form>
+  </div>
+
+  <script>
+    var departmentSelect = document.getElementById('department');
+    var yearSelect = document.getElementById('year');
+    document.getElementById('degree').addEventListener('change', function() {
+      yearSelect.innerHTML = '<option value="" disabled selected>Select Year</option>';
+      departmentSelect.innerHTML = '<option value="" disabled selected>Select Department</option>';
+      if (this.value === 'UG') {
+        yearSelect.options.add(new Option('1st Year', '1st_year'));
+        yearSelect.options.add(new Option('2nd Year', '2nd_year'));
+        yearSelect.options.add(new Option('3rd Year', '3rd_year'));
+
+        // Adding UG departments
+        departmentSelect.options.add(new Option('B.A. Economics', 'ba_economics'));
+        departmentSelect.options.add(new Option('B.A. Defence and Strategic Studies', 'ba_defence_strategic_studies'));
+        departmentSelect.options.add(new Option('B.Sc. Mathematics', 'bsc_mathematics'));
+        departmentSelect.options.add(new Option('B.Sc. Physics', 'bsc_physics'));
+        departmentSelect.options.add(new Option('B.Sc. Chemistry', 'bsc_chemistry'));
+        departmentSelect.options.add(new Option('B.Sc. Plant Biology and Plant Biotechnology', 'bsc_plant_biology_biotechnology'));
+        departmentSelect.options.add(new Option('B.Sc. Advanced Zoology and Biotechnology', 'bsc_advanced_zoology_biotechnology'));
+        departmentSelect.options.add(new Option('B.Com. (General)', 'bcom_general'));
+        departmentSelect.options.add(new Option('B.Com. (Corporate Secretaryship)', 'bcom_corporate_secretaryship'));
+        departmentSelect.options.add(new Option('B.Sc. Visual Communication', 'bsc_visual_communication'));
+        departmentSelect.options.add(new Option('B.A. (English)', 'ba_english'));
+        departmentSelect.options.add(new Option('B.Sc. (Biotechnology)', 'bsc_biotechnology'));
+        departmentSelect.options.add(new Option('B.Sc. (Information Technology)', 'bsc_information_technology'));
+        departmentSelect.options.add(new Option('B.A. (Sociology)', 'ba_sociology'));
+        departmentSelect.options.add(new Option('B.Sc. (Data Analytics)', 'bsc_data_analytics'));
+        departmentSelect.options.add(new Option('B.Com. (Computer Applications)', 'bcom_computer_applications'));
+        departmentSelect.options.add(new Option('B.Com. (Professional Accounting)', 'bcom_professional_accounting'));
+        departmentSelect.options.add(new Option('B.A (Political Science and Administration)', 'ba_political_science_administration'));
+        departmentSelect.options.add(new Option('Bachelor of Business Administration', 'bba'));
+        departmentSelect.options.add(new Option('Bachelor of Computer Applications', 'bca'));
+        departmentSelect.options.add(new Option('B.Sc. Computer Science', 'bsc_computer_science'));
+        departmentSelect.options.add(new Option('B.Com. (Accounting & Finance)', 'bcom_accounting_finance'));
+        departmentSelect.options.add(new Option('B.Com. (Honours)', 'bcom_honours'));
+        departmentSelect.options.add(new Option('B.Com. (Bank Management)', 'bcom_bank_management'));
+        departmentSelect.options.add(new Option('B.Com. (Marketing Management)', 'bcom_marketing_management'));
+        // Add more UG departments as needed...
+
+      } else if (this.value === 'PG') {
+        yearSelect.options.add(new Option('1st Year', '1st_year'));
+        yearSelect.options.add(new Option('2nd Year', '2nd_year'));
+
+        // Adding PG departments
+        departmentSelect.options.add(new Option('M.A. Economics', 'ma_economics'));
+        departmentSelect.options.add(new Option('M.Sc. Chemistry', 'msc_chemistry'));
+        departmentSelect.options.add(new Option('M.Com. General', 'mcom_general'));
+        departmentSelect.options.add(new Option('M.B.A. (Master of Business Administration)', 'mba'));
+        departmentSelect.options.add(new Option('M.C.A. (Master of Computer Applications)', 'mca'));
+        departmentSelect.options.add(new Option('M.Sc. Mathematics', 'msc_mathematics'));
+        departmentSelect.options.add(new Option('M.Sc. Zoology', 'msc_zoology'));
+        departmentSelect.options.add(new Option('M.S.W', 'msw'));
+        departmentSelect.options.add(new Option('M.A. Defence and Strategic Studies', 'ma_defence_strategic_studies'));
+        // Add more PG departments as needed...
+      }
+      yearSelect.removeAttribute('disabled');
+      departmentSelect.removeAttribute('disabled');
+    });
+  </script>
+
+</body>
+</html>

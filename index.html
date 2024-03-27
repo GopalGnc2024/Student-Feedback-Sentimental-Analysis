@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .navbar p {
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .navbar img {
+            width: 40px; /* Adjust the size of the icon */
+            margin-right: 10px;
+        }
+
+        .login-btn {
+            margin-right: 20px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("back.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .content {
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .project-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .select-template-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: #fff;
+            border: 2px solid #3498db;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .select-template-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <title>Select Template</title>
+</head>
+<body>
+    <div class="navbar">
+        <img src="gnclogo.png" alt="GNC Logo">
+        <div>
+            <h1>Guru Nanak College - Autonomous</h1>
+            <p class="par">Affiliated to University of Madras, Accredited at 'A++' Grade by NAAC</p>
+        </div>
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="project-title">Sentimental Analysis</div>
+            <a href="available.html" class="select-template-btn">SELECT TEMPLATE</a>
+        </div>
+    </div>
+</body>
+</html>

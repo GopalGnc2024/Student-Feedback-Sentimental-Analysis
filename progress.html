@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+        }
+
+        .wrapper {
+            width: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wrapper .card {
+            background: #fff;
+            width: calc(50% - 20px);
+            height: 200px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .wrapper .card .circle {
+            position: relative;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            cursor: default;
+        }
+
+        .card .circle .bar {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background-color: #ddd; /* Added a background color for better visibility */
+        }
+
+        .card .circle .box,
+        .card .circle .box span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card .circle .box {
+            height: 90%;
+            width: 90%;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .card:hover .circle .box {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .card .circle .box span,
+        .wrapper .card .text {
+            background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+            -webkit-background-clip: text;
+                    background-clip: 0 0 6px;
+            -webkit-text-fill-color: transparent;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 50px; /* Adjust the top margin as needed */
+            margin-bottom: 20px; /* Added margin-bottom for space after the title */
+            color: white; /* Set the text color to white */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+.back-btn {
+            background-color: white;
+            color: purple;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .export-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sentimental Analysis</h2>
+    <div class="wrapper">
+        <div class="card total-feedback">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Total Feedback</div>
+        </div>
+        <div class="card excellent">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Excellent</div>
+        </div>
+        <div class="card verygood">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Very Good</div>
+        </div>
+        <div class="card good">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Good</div>
+        </div>
+        <div class="card poor">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Poor</div>
+        </div>
+        <div class="card verypoor">
+            <div class="circle">
+                <div class="bar"></div>
+                <div class="box"><span></span></div>
+            </div>
+            <div class="text">Very Poor</div>
+        </div>
+    </div>
+<button class="back-btn" onclick="goBack()">Back to Dashboard</button>
+<button class="export-btn">Export</button> <!-- Add Export button -->   
+ <script>
+        $(document).ready(function() {
+            // AJAX call to retrieve data from data.php
+            $.ajax({
+                url: 'data.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    // Update progress bars and text spans with retrieved data
+                    $(".total-feedback .bar").circleProgress({
+                        value: response.total_feedbacks / 100,
+                        size: 100
+                    });
+                    $(".excellent .bar").circleProgress({
+                        value: response.excellent / 100,
+                        size: 100
+                    });
+                    $(".verygood .bar").circleProgress({
+                        value: response.verygood / 100,
+                        size: 100
+                    });
+                    $(".good .bar").circleProgress({
+                        value: response.good / 100,
+                        size: 100
+                    });
+                    $(".poor .bar").circleProgress({
+                        value: response.poor / 100,
+                        size: 100
+                    });
+                    $(".verypoor .bar").circleProgress({
+                        value: response.verypoor / 100,
+                        size: 100
+                    });
+
+                    $(".total-feedback .box span").text(response.total_feedbacks);
+                    $(".excellent .box span").text(response.excellent + "%");
+                    $(".verygood .box span").text(response.verygood + "%");
+                    $(".good .box span").text(response.good + "%");
+                    $(".poor .box span").text(response.poor + "%");
+                    $(".verypoor .box span").text(response.verypoor + "%");
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error(error);
+                }
+            });
+        });
+         $(document).ready(function() {
+            // AJAX call to retrieve data from data.php
+            // Your existing AJAX code
+        });
+
+        $(".export-btn").click(function() {
+            // AJAX call to export data to CSV
+            $.ajax({
+                url: 'export.php', // Change to your server-side script URL
+                type: 'GET',
+                success: function(response) {
+                    // Trigger download using Blob and URL.createObjectURL
+                    var blob = new Blob([response]);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'seminar.csv';
+                    link.click();
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error(error);
+                }
+            });
+        });
+
+        function goBack() {
+            window.location.href = "dash.html";
+        }
+         
+       
+
+    </script>
+</body>
+</html>

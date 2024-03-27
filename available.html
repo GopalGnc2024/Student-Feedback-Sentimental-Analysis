@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Set your desired background color */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .template-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .template {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .template img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+    <title>Available Templates</title>
+</head>
+<body>
+    <h1>Available Templates</h1>
+
+    <div class="template-container">
+        <div class="template" onclick="redirectTo('log.html')">
+            <img src="seminar.jpg" alt="Seminar Template">
+            <p>Seminar Feedback Template</p>
+        </div>
+
+        <div class="template" onclick="redirectTo('wlog.html')">
+            <img src="workshop.jpg" alt="Workshop Template">
+            <p>Workshop Feedback Template</p>
+        </div>
+
+        <div class="template" onclick="redirectTo('plog.html')">
+            <img src="project.jpg" alt="Project Feedback Template">
+            <p>Project Feedback Template</p>
+        </div>
+
+        <div class="template" onclick="redirectTo('ilog.html')">
+            <img src="internship.jpg" alt="Internship Feedback Template">
+            <p>Internship Feedback Template</p>
+        </div>
+
+        <div class="template" onclick="redirectTo('clog.html')">
+            <img src="course.jpg" alt="Course Feedback Template">
+            <p>Course Feedback Template</p>
+        </div>
+    </div>
+
+    <script>
+        function redirectTo(template) {
+            window.location.href = template;
+        }
+    </script>
+</body>
+</html>

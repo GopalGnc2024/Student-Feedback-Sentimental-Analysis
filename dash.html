@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpeg'); /* Add the background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .logout-btn {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: -10px; /* Adjust this value to move the button upwards */
+        }
+
+        .logout-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1000px; /* Increased container width */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .template-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .template {
+            width: calc(40% - 10px); /* Adjusted width of template cards */
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .template img {
+            max-width: 80%; /* Reduced image size */
+            border-radius: 8px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Align buttons to the right */
+        }
+
+        .internship-btn { /* Adjusted styles for internship button */
+            margin-left: auto; /* Move internship button to the right */
+        }
+
+        .welcome-admin {
+            font-size: 14px; /* Reduced font size for welcome admin */
+        }
+
+        .admin-dashboard {
+            font-size: 24px; /* Increased font size for admin dashboard */
+        }
+
+        .seminar-btn,
+        .workshop-btn,
+        .course-btn,
+        .internship-btn,
+        .project-btn { /* Added styles for new buttons */
+            background-color: #ff7200;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 10px; /* Adjusted margin to provide spacing between buttons */
+        }
+
+        .seminar-btn:hover,
+        .workshop-btn:hover,
+        .course-btn:hover,
+        .internship-btn:hover,
+        .project-btn:hover { /* Added hover styles for new buttons */
+            background-color: #ff9600;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <img src="adminlogo.png" alt="Admin Logo">
+            <h2 class="welcome-admin">Welcome, Admin</h2>
+        </div>
+        <h2 class="admin-dashboard">Admin Dashboard</h2>
+        <a href="#" class="logout-btn">Logout</a>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to the Dashboard</h1>
+
+            <div class="template-container">
+                <!-- Seminar Template Card -->
+                <div class="template">
+                    <img src="seminar.jpg" alt="Seminar Template">
+                    <p>Seminar Feedback </p>
+                </div>
+
+                <!-- Workshop Template Card -->
+                <div class="template">
+                    <img src="workshop.jpg" alt="Workshop Template">
+                    <p>Workshop Feedback</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="seminar-btn"> Seminar</button>
+                <button class="workshop-btn"> Workshop</button>
+            </div>
+
+            <div class="template-container">
+                <!-- Course Template Card -->
+                <div class="template">
+                    <img src="course.jpg" alt="Course Feedback Template">
+                    <p>Course Feedback</p>
+                </div>
+
+                <!-- Internship Template Card -->
+                <div class="template">
+                    <img src="internship.jpg" alt="Internship Feedback Template">
+                    <p>Internship Feedback</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="course-btn">Course</button>
+                <button class="internship-btn"> Internship</button>
+            </div>
+
+            <div class="template-container">
+                <!-- Project Template Card -->
+                <div class="template">
+                    <img src="project.jpg" alt="Project Feedback Template">
+                    <p>Project Feedback</p>
+                </div>
+            </div>
+            <button class="project-btn">Project</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".seminar-btn").click(function() {
+                // Run seminar_data.php script
+                $.ajax({
+                    url: "data.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("Seminar data retrieved successfully:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error retrieving seminar data:", error);
+                    }
+                });
+                // Redirect to seminar_progress.html
+                window.location.href = "progress.html";
+            });
+            
+            $(".workshop-btn").click(function() {
+                // Run workshop_data.php script
+                $.ajax({
+                    url: "wdata.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("Workshop data retrieved successfully:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error retrieving workshop data:", error);
+                    }
+                });
+		window.location.href = "wprogress.html";
+
+            });
+
+            $(".course-btn").click(function() {
+                // Run course_data.php script
+                $.ajax({
+                    url: "cdata.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("Course data retrieved successfully:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error retrieving course data:", error);
+                    }
+                });
+		window.location.href = "cprogress.html";
+
+            });
+
+            $(".internship-btn").click(function() {
+                // Run internship_data.php script
+                $.ajax({
+                    url: "idata.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("Internship data retrieved successfully:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error retrieving internship data:", error);
+                    }
+                });
+		window.location.href = "iprogress.html";
+
+            });
+
+            $(".project-btn").click(function() {
+                // Run project_data.php script
+                $.ajax({
+                    url: "pdata.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("Project data retrieved successfully:", data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error retrieving project data:", error);
+                    }
+                });
+		window.location.href = "pprogress.html";
+
+            });
+
+            // Event listener for the logout button
+            $(".logout-btn").click(function() {
+                // Clear any stored credentials or session data here
+                // For example, you can clear localStorage or sessionStorage
+                localStorage.removeItem("username");
+                localStorage.removeItem("password");
+
+                // Redirect to the admin login page
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+</body>
+</html>

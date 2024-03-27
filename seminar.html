@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seminar Feedback Form - Step 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+    .submit-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+	
+  <form id="feedbackForm" action="seminar.php" method="get">
+    <!-- Replace "thankyou.html" with the actual file path of your thankyou.html file -->
+
+    <label for="q1">How would you rate the relevance of the seminar content to your interests or professional needs?</label>
+    <select id="q1" name="q1" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q2">How would you rate the presenter's knowledge of the subject matter?</label>
+    <select id="q2" name="q2" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q3">How clear and understandable was the presentation?</label>
+    <select id="q3" name="q3" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q4">To what extent did the seminar keep you engaged throughout its duration?</label>
+    <select id="q4" name="q4" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q5">How effective were the visual aids (slides, charts, etc.) in enhancing your understanding?</label>
+    <select id="q5" name="q5" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    
+    <label for="q6">Overall, how satisfied are you with the seminar?</label>
+    <select id="q6" name="q6" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q7">How would you rate the technical support provided during the seminar (e.g., audio, video, chat assistance)?</label>
+    <select id="q7" name="q7" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q8">How satisfied are you with the opportunities for audience interaction and engagement?</label>
+    <select id="q8" name="q8" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q9">How likely are you to recommend similar seminars to your colleagues or peers?</label>
+    <select id="q9" name="q9" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Excellent">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Poor">Poor</option>
+      <option value="Very Poor">Very Poor</option>
+    </select>
+
+    <label for="q10">Any suggestions for improvements?</label>
+    <textarea id="q10" name="q10" rows="4"></textarea>
+
+    <button class="submit-button" type="submit">Submit Feedback</button>
+  </form>
+
+</body>
+</html>
